@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\containervervoer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|solutionrelative:containervervoer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Program.cs",
+              "RelativeDocumentMoniker": "ContainerVervoer\\Program.cs",
+              "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Program.cs",
+              "RelativeToolTip": "ContainerVervoer\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:08:16.133Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
