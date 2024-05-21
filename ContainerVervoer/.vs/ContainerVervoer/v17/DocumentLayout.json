@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\containervervoer\\classes\\container.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|solutionrelative:containervervoer\\classes\\container.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\containervervoer\\classes\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|solutionrelative:containervervoer\\classes\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\containervervoer\\classes\\containerstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|solutionrelative:containervervoer\\classes\\containerstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D1731D8-7DF0-405C-B720-68583AA1E91A}|UnitTestContainerVervoer\\UnitTestContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\unittestcontainervervoer\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D1731D8-7DF0-405C-B720-68583AA1E91A}|UnitTestContainerVervoer\\UnitTestContainerVervoer.csproj|solutionrelative:unittestcontainervervoer\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|c:\\users\\rik heerholtz\\desktop\\fonty\u0027s\\s2\\containervervoer\\containervervoer\\containervervoer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9307CDB1-5254-44D8-9F33-7FE87F2E3057}|ContainerVervoer\\ContainerVervoer.csproj|solutionrelative:containervervoer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,17 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ship.cs",
+              "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\Ship.cs",
+              "RelativeDocumentMoniker": "ContainerVervoer\\Classes\\Ship.cs",
+              "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\Ship.cs",
+              "RelativeToolTip": "ContainerVervoer\\Classes\\Ship.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:34:14.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContainerStack.cs",
+              "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\ContainerStack.cs",
+              "RelativeDocumentMoniker": "ContainerVervoer\\Classes\\ContainerStack.cs",
+              "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\ContainerStack.cs",
+              "RelativeToolTip": "ContainerVervoer\\Classes\\ContainerStack.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:34:06.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Container.cs",
+              "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\Container.cs",
+              "RelativeDocumentMoniker": "ContainerVervoer\\Classes\\Container.cs",
+              "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Classes\\Container.cs",
+              "RelativeToolTip": "ContainerVervoer\\Classes\\Container.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:33:44.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\UnitTestContainerVervoer\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "UnitTestContainerVervoer\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\UnitTestContainerVervoer\\UnitTest1.cs",
+              "RelativeToolTip": "UnitTestContainerVervoer\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:14:15.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Program.cs",
               "RelativeDocumentMoniker": "ContainerVervoer\\Program.cs",
               "ToolTip": "C:\\Users\\Rik Heerholtz\\Desktop\\Fonty\u0027s\\S2\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer\\Program.cs",
               "RelativeToolTip": "ContainerVervoer\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-21T11:08:16.133Z",
               "EditorCaption": ""
