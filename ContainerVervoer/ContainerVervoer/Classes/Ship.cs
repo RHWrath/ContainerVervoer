@@ -17,8 +17,8 @@ namespace ContainerVervoer.Classes
         public int CurrentShipWeight { get; set; }
         IEnumerable<ContainerStack> STONKs { get   { return stacks; } }
         private List<ContainerStack> stacks { get; set; } = new();
-        IEnumerable<Container> OnDock {  get { return onDock; } }
-        private List<Container> onDock { get; set; } = new();
+        IEnumerable<Container> OnDock {  get { return onDocking; } }
+        private List<Container> onDocking { get; set; } = new();
 
         public Ship(int length,int width) 
         {
@@ -30,14 +30,21 @@ namespace ContainerVervoer.Classes
 
        public void AddContainerToStack()
         {
-
+           
             foreach (var stack in stacks) 
-            {
-                if (stack.AcceptebleStackWeight())
-                {
-                    AddContainerToStack();
-                }
-            
+            {                
+                    foreach (var onDock in onDocking)
+                    {
+                        if (stack.AcceptebleStackWeight())
+                        {
+                            stack.AddContainerToStack(onDock);
+                            stack.ChangeCurrentStackWeight();
+                        }
+                    }
+
+
+                
+
             }
 
         }
