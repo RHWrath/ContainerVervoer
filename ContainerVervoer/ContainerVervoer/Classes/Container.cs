@@ -13,22 +13,22 @@ namespace ContainerVervoer.Classes
         public const int MAXCARRYWEIGHT = 120;
         public bool IsCooled { get; set; }
         public bool IsValueble { get; set; }
-        public int CurrentWeight {  get; set; }
+        public int CurrentContainerWeight {  get; set; }
 
         public Container(bool iscooled, bool isvalueble,int currentweight) 
-        { 
-            if (!AcceptedWeight(currentweight))
-            {
-                throw new ArgumentException("Error invalid weight");
-            }
+        {
+            CurrentContainerWeight = currentweight;
+            //if (!AcceptedWeight())
+            //{
+            //    throw new ArgumentException("Error invalid weight");
+            //}
 
-            CurrentWeight = currentweight;
             IsCooled = iscooled;
             IsValueble = isvalueble;        
         }
-        public bool AcceptedWeight(int Weight)
+        public bool AcceptedWeight()
         {
-            return Weight >= MAXWEIGHT && Weight <= MINWEIGHT;
+            return CurrentContainerWeight >= MINWEIGHT && CurrentContainerWeight <= MAXWEIGHT;
         }
     }
     
