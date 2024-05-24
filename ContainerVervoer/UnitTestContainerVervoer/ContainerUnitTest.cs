@@ -23,17 +23,17 @@ public class ContainerUnitTest
 
     [TestMethod]
     public void FailedContainerWeightValidation()
-    {
-        //Arrange
-        Container container = new Container(true, true, 1);
-
+    {    
 
         //act
-        bool succes = container.AcceptedWeight();
+        ArgumentException Underlimit = Assert.ThrowsException<ArgumentException>( () => new Container(true, true, 1));
+        ArgumentException Overimit = Assert.ThrowsException<ArgumentException>(() => new Container(true, true, 31));
 
 
         //assert
-        Assert.AreEqual(false, succes);
+        Assert.AreEqual("Error invalid weight", Underlimit.Message);
+        Assert.AreEqual("Error invalid weight", Overimit.Message);
+
     }
 
 

@@ -15,9 +15,9 @@ namespace ContainerVervoer.Classes
         public int Width { get; set; }
         public int MaxShipWeight { get; set; }
         public int CurrentShipWeight { get; set; }
-        IEnumerable<ContainerStack> STONKs { get   { return stacks; } }
+        public IEnumerable<ContainerStack> STONKs { get   { return stacks; } }
         private List<ContainerStack> stacks { get; set; } = new();
-        IEnumerable<Container> OnDock {  get { return onDocking; } }
+        public IEnumerable<Container> onDock {  get { return onDocking; } }
         private List<Container> onDocking { get; set; } = new();
 
         public Ship(int length,int width) 
@@ -39,6 +39,9 @@ namespace ContainerVervoer.Classes
                         {
                             stack.AddContainerToStack(onDock);
                             stack.ChangeCurrentStackWeight();
+                        } else
+                        {
+                           
                         }
                     }
 
@@ -83,6 +86,13 @@ namespace ContainerVervoer.Classes
             return false;
         }
 
+
+
+
+        public void AddContainerToDock(Container container)
+        {
+            onDocking.Add(container);
+        }
         
 
     }
