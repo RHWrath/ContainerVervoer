@@ -11,6 +11,7 @@ namespace ContainerVervoer.Classes
         public const int MAXWEIGHT = 30;
         public const int MINWEIGHT = 4;
         public const int MAXCARRYWEIGHT = 120;
+        
         public bool IsCooled { get; set; }
         public bool IsValueble { get; set; }
         public int CurrentContainerWeight {  get; set; }

@@ -14,10 +14,13 @@ namespace ContainerVervoer.Classes
         public int Length { get; set; }
         public int Width { get; set; }
         public int MaxShipWeight { get; set; }
-        public int CurrentShipWeight { get; set; }
-        public IEnumerable<ContainerStack> STONKs { get   { return stacks; } }
+        public int CurrentShipWeight { get { return stacks.Sum(e => e.CurrentStackWeight); } }
+        public IReadOnlyList<ContainerStackRow> ContainerStackRows { get { return containerstackrows; } }
+        private List<ContainerStackRow> containerstackrows { get; set; } = new();
+
+        public IReadOnlyList<ContainerStack> Stacks { get   { return stacks; } }
         private List<ContainerStack> stacks { get; set; } = new();
-        public IEnumerable<Container> onDock {  get { return onDocking; } }
+        public IReadOnlyList<Container> onDock {  get { return onDocking; } }
         private List<Container> onDocking { get; set; } = new();
 
         public Ship(int length,int width) 
@@ -25,55 +28,84 @@ namespace ContainerVervoer.Classes
             Length = length;
             Width = width;
             MaxShipWeight = Length * Width * 150;
-            CreateContainerStack();
+            CreateContainerStackRow();
         }
 
-       public void AddContainerToStack()
+       public void DivideContainersOverShip()
         {
-           
-            foreach (var stack in stacks) 
-            {                
-                    foreach (var onDock in onDocking)
-                    {
-                        if (stack.AcceptebleStackWeight())
-                        {
-                            stack.AddContainerToStack(onDock);
-                            stack.ChangeCurrentStackWeight();
-                        } else
-                        {
-                           
-                        }
-                    }
+            //int CurrentCooled = 0;
+            //onDocking = SortContainer(onDocking);
 
+            //foreach (var container in onDocking) 
+            //{
+            //    bool containerAdded = false;
 
-                
+            //    foreach (var stack in stacks)
+            //        {
+            //            while (containerAdded == false)
+            //            {
+            //                if (container.IsCooled && container.IsValueble)
+            //                {
+            //                    stack.AddContainerToStack(container);
+            //                    containerAdded = true;
+            //                }
 
-            }
+            //                if (container.IsCooled)
+            //                {
+            //                    stack.AddContainerToStack(container);
+            //                    containerAdded = true;
+            //                }
+
+            //                if (container.IsValueble)
+            //                {
+            //                    stack.AddContainerToStack(container);
+            //                    containerAdded = true;
+            //                }
+            //                else
+            //                {
+            //                    stack.AddContainerToStack(container);
+            //                    containerAdded = true;
+            //                }
+            //            }
+            //        }
+            //}
 
         }
 
-        public bool CalculateMargins(int weightLeftside, int weightRightside)
-        {
-            return weightLeftside >= weightRightside * 0.80 && weightRightside >= weightLeftside * 0.80;
-        }
+        
 
-
-        private void CreateContainerStack()
+        private void CreateContainerStackRow()
         {
-            int StacksNeeded = Length * Width;
-            for (int i = 0; i < StacksNeeded; i++)
+            for (int i = 0; i < Length; i++)
             {
-                stacks.Add(new ContainerStack());
+                containerstackrows.Add(new ContainerStackRow(Width));
             }
+        }      
+        
+
+        public void AddContainerToDock(Container container)
+        {
+            onDocking.Add(container);
+        }
+        
+        public List<Container> SortContainer(List<Container> ondocking)
+        {
+            return ondocking.OrderByDescending(c => c.IsCooled).ThenBy(c => c.IsValueble).ThenBy(c => c.CurrentContainerWeight).ToList();
         }
 
-        private void CalculateTotalWeightSide(int index)
+        #region WeightCalculatione
+        public int CalculateWeightLeftside()
         {
-            for (int i = 0; i < stacks.Count / Width; i++)
-            {
-                CurrentShipWeight += stacks[index].CurrentStackWeight;
-                index += Width;
-            }
+            int LeftWeight =0;
+
+            return LeftWeight += containerstackrows.Sum(row => row.ContainerStacks.FirstOrDefault().CurrentStackWeight);
+        }
+
+        public int CalculateWeightRightside()
+        {
+            int RightWeight = 0;
+
+            return RightWeight += containerstackrows.Sum(row => row.ContainerStacks.LastOrDefault().CurrentStackWeight);
         }
 
         public bool ShipWeightHalfFilled()
@@ -85,15 +117,10 @@ namespace ContainerVervoer.Classes
             }
             return false;
         }
-
-
-
-
-        public void AddContainerToDock(Container container)
+        public bool CalculateMargins(int weightLeftside, int weightRightside)
         {
-            onDocking.Add(container);
+            return weightLeftside >= weightRightside * 0.80 && weightRightside >= weightLeftside * 0.80;
         }
-        
-
+        #endregion
     }
 }

@@ -9,31 +9,55 @@ namespace ContainerVervoer.Classes
     public class ContainerStack
     {
         public const int MAXWEIGHT = 150;
-        public int CurrentStackWeight { get; set; }
-        public IEnumerable<Container> Containers { get { return containers; } }
+        public int CurrentStackWeight { get { return containers.Sum(e => e.CurrentContainerWeight); } }
+        public IReadOnlyList<Container> Containers { get { return containers; } }
         private List<Container> containers { get; set; }
 
 
-        public bool AcceptebleStackWeight() 
-        {
-            if (CurrentStackWeight <= MAXWEIGHT)
-            { return true; } else { return false; }
-        }
+        
 
-        public void ChangeCurrentStackWeight()
-        {
-            CurrentStackWeight = 0;
-            foreach (var container in containers)
-            {             
-                CurrentStackWeight =+container.CurrentContainerWeight;                
-            }
-        }
+        
 
         public void AddContainerToStack(Container currentContainer)
         {
             containers.Add(currentContainer);
-            ChangeCurrentStackWeight();
         }
 
+
+        public bool TryAddingContainerToStack(Container container)
+        {
+            if (containers.Count != 0)
+            {
+                if (AcceptebleStackWeight() && DoesNotExceedCarryWeight(containers))
+                {
+                    containers.Add(container);
+                    return true;
+            }
+            }
+            else
+            {
+                containers.Add(container);
+                return true;
+            }
+            return false;
+        }
+
+        #region Checks
+        private bool DoesNotExceedCarryWeight(List<Container> containers)
+        {
+            
+            if (CurrentStackWeight <= Container.MAXCARRYWEIGHT)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        public bool AcceptebleStackWeight()
+        {
+            if (CurrentStackWeight <= MAXWEIGHT)
+            { return true; }
+            else { return false; }
+        }
+        #endregion
     }
 }
