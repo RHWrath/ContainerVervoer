@@ -133,6 +133,28 @@ public class ShipUnitTest
         Assert.AreEqual(true, containers.ElementAt(3).IsValueble);
     }
 
+    [TestMethod]
+    public void CalculateLeftSide()
+    {
+        //Arrange
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
+        //Act
+        //Assert
+    }
+    [TestMethod]
+    public void CalculateRightSide()
+    {
+        //Arrange
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
+        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
+        //Act
+        //Assert
+    }
 
 
 
