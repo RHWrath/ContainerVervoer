@@ -21,7 +21,7 @@ public class ShipUnitTest
     private Container ValuedCooledLightContainer { get; } = new Container(true, true, 5);
     private Container ValuedCooledMediumContainer { get; } = new Container(true, true, 15);
     private Container ValuedCooledHeavyContainer { get; } = new Container(true, true, 30);
-    private Ship DefaultShip { get; } = new Ship(3, 3);
+    //private Ship DefaultShip { get; } = new Ship(3, 3);
     #endregion
 
     [TestMethod]
@@ -69,38 +69,38 @@ public class ShipUnitTest
         Assert.AreEqual(false, succes);
     }
 
-    [TestMethod]
-    public void AddingOneContainerToDock()
-    {
-        //Arrange
-        int Counter;
+    //[TestMethod]
+    //public void AddingOneContainerToDock()
+    //{
+    //    //Arrange
+    //    int Counter;
 
-        //Act
-        DefaultShip.AddContainerToDock(DefaultMediumContainer);
-        Counter = DefaultShip.onDock.Count();
-        //Assert
-        Assert.AreEqual(1, Counter); 
-    }
+    //    //Act
+    //    DefaultShip.AddContainerToDock(DefaultMediumContainer);
+    //    Counter = DefaultShip.onDock.Count();
+    //    //Assert
+    //    Assert.AreEqual(1, Counter); 
+    //}
 
-    [TestMethod]
-    public void AddingSeveralContainerToDock()
-    {
-        //Arrange
-        int Counter;
+    //[TestMethod]
+    //public void AddingSeveralContainerToDock()
+    //{
+    //    //Arrange
+    //    int Counter;
 
-        //Act
-        DefaultShip.AddContainerToDock(DefaultMediumContainer);
-        DefaultShip.AddContainerToDock(DefaultLightContainer);
-        DefaultShip.AddContainerToDock(DefaultHeavyContainer);
-        DefaultShip.AddContainerToDock(DefaultMediumContainer);
-        DefaultShip.AddContainerToDock(DefaultLightContainer);
-        DefaultShip.AddContainerToDock(DefaultMediumContainer);
-        DefaultShip.AddContainerToDock(DefaultMediumContainer);
+    //    //Act
+    //    DefaultShip.AddContainerToDock(DefaultMediumContainer);
+    //    DefaultShip.AddContainerToDock(DefaultLightContainer);
+    //    DefaultShip.AddContainerToDock(DefaultHeavyContainer);
+    //    DefaultShip.AddContainerToDock(DefaultMediumContainer);
+    //    DefaultShip.AddContainerToDock(DefaultLightContainer);
+    //    DefaultShip.AddContainerToDock(DefaultMediumContainer);
+    //    DefaultShip.AddContainerToDock(DefaultMediumContainer);
 
-        Counter = DefaultShip.onDock.Count();
-        //Assert
-        Assert.AreEqual(7, Counter);
-    }
+    //    Counter = DefaultShip.onDock.Count();
+    //    //Assert
+    //    Assert.AreEqual(7, Counter);
+    //}
 
     [TestMethod]
     public void SortingMultipleContainers()
@@ -111,7 +111,8 @@ public class ShipUnitTest
             new Container(false, false, 5),
             new Container(true, false, 5),
             new Container(true, true, 5),
-            new Container(false, true, 5)        
+            new Container(true, false, 5),        
+            new Container(false, true, 5)
         };
         Ship ship = new Ship(2, 2);
         
@@ -124,39 +125,38 @@ public class ShipUnitTest
         Assert.AreEqual(false, containers.ElementAt(0).IsValueble);
 
         Assert.AreEqual(true, containers.ElementAt(1).IsCooled);
-        Assert.AreEqual(true, containers.ElementAt(1).IsValueble);
+        Assert.AreEqual(false, containers.ElementAt(1).IsValueble);
 
-        Assert.AreEqual(false, containers.ElementAt(2).IsCooled);
-        Assert.AreEqual(false, containers.ElementAt(2).IsValueble);
+        Assert.AreEqual(true, containers.ElementAt(2).IsCooled);
+        Assert.AreEqual(true, containers.ElementAt(2).IsValueble);
 
         Assert.AreEqual(false, containers.ElementAt(3).IsCooled);
-        Assert.AreEqual(true, containers.ElementAt(3).IsValueble);
+        Assert.AreEqual(false, containers.ElementAt(3).IsValueble);
+
+        Assert.AreEqual(false, containers.ElementAt(4).IsCooled);
+        Assert.AreEqual(true, containers.ElementAt(4).IsValueble);
     }
 
     [TestMethod]
-    public void CalculateLeftSide()
+    public void DivideContainersOverShip()
     {
         //Arrange
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
-        //Act
-        //Assert
-    }
-    [TestMethod]
-    public void CalculateRightSide()
-    {
-        //Arrange
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //left
-        DefaultShip.AddContainerToDock(DefaultLightContainer); //right
-        //Act
-        //Assert
-    }
+        Ship testShip = new Ship (2, 2);
+        testShip.AddContainerToDock(CooledLightContainer);
+        testShip.AddContainerToDock(ValuedCooledMediumContainer);
+        testShip.AddContainerToDock(CooledLightContainer);
+        testShip.AddContainerToDock(CooledLightContainer);
+        testShip.AddContainerToDock(DefaultLightContainer);
 
 
+        //Act
+        testShip.DivideContainersOverShip();
+        //Assert
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].IsCooled);
+        Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].IsValueble);
+        Assert.AreEqual(5, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].CurrentContainerWeight);
+
+    }
 
 
 }

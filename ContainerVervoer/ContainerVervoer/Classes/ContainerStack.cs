@@ -11,7 +11,7 @@ namespace ContainerVervoer.Classes
         public const int MAXWEIGHT = 150;
         public int CurrentStackWeight { get { return containers.Sum(e => e.CurrentContainerWeight); } }
         public IReadOnlyList<Container> Containers { get { return containers; } }
-        private List<Container> containers { get; set; }
+        private List<Container> containers { get; set; } = new();
 
 
         
@@ -30,8 +30,11 @@ namespace ContainerVervoer.Classes
             {
                 if (AcceptebleStackWeight() && DoesNotExceedCarryWeight(containers))
                 {
-                    containers.Add(container);
-                    return true;
+                    if (!NotOnValueble(container)) 
+                    {
+                        containers.Add(container);
+                        return true;
+                    }                   
             }
             }
             else
@@ -57,6 +60,11 @@ namespace ContainerVervoer.Classes
             if (CurrentStackWeight <= MAXWEIGHT)
             { return true; }
             else { return false; }
+        }
+
+        private bool NotOnValueble(Container container)
+        {
+            return containers.LastOrDefault()!.IsValueble;
         }
         #endregion
     }

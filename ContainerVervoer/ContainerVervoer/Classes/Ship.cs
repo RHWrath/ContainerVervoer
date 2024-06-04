@@ -33,11 +33,14 @@ namespace ContainerVervoer.Classes
             
             try
             {
-                if (CanShipWeightBeHalfFilled() && OverMaxWeightOnShip())
-                {
+                //if (CanShipWeightBeHalfFilled() && OverMaxWeightOnShip())
+                //{
                     onDocking = SortContainer(onDocking);
+                    TryToPlaceCooledContainer();
+                    TryToPlaceNormaleContainer();
+                    TryToPlaceValuebleContainer();
 
-                }
+                //}
             } 
             catch (Exception)
             {
@@ -52,13 +55,28 @@ namespace ContainerVervoer.Classes
 
             foreach (Container cooledcontainer in CooledContainers)
             {
+
                 containerstackrows[0].AddingContainerStackRow(cooledcontainer);
             }
         }
 
         private void TryToPlaceNormaleContainer()
         {
+            int RowIndex = 1;
+            int AmountContainersAdded = 0;
+
             List<Container> NormalContainers = onDocking.Where(c => !c.IsCooled).Where(c => !c.IsValueble).ToList();
+            foreach (Container normalcontainer in NormalContainers)
+            {
+                bool containerAdded = false;
+
+                if (RowIndex == Length) RowIndex = 0;
+                containerAdded = containerstackrows[RowIndex].AddingContainerStackRow(normalcontainer);
+
+                if (containerAdded)  AmountContainersAdded++; else RowIndex++;
+
+                if (AmountContainersAdded == Width) AmountContainersAdded = 0;
+            }
         }
 
         private void TryToPlaceValuebleContainer()
@@ -73,13 +91,12 @@ namespace ContainerVervoer.Classes
                 {
                     if (!containerAdded)
                     {
-                        ContainerStackRows[i].AddingContainerStackRow(valueblecontainer);
                         containerAdded = true;
                     }
                 }
             }
         }
-
+        
         private void CreateContainerStackRow()
         {
             for (int i = 0; i < Length; i++)
@@ -109,7 +126,14 @@ namespace ContainerVervoer.Classes
             return RightWeight += containerstackrows.Sum(row => row.ContainerStacks.LastOrDefault().CurrentStackWeight);
         }
 
-        
+        public int CalculateWeightLeftside()
+        {
+            int RightWeight = 0;
+
+            return RightWeight += containerstackrows.Sum(row => row.ContainerStacks.FirstOrDefault().CurrentStackWeight);
+        }
+
+
         public bool CalculateMargins(int weightLeftside, int weightRightside)
         {
             return weightLeftside >= weightRightside * 0.80 && weightRightside >= weightLeftside * 0.80;

@@ -24,14 +24,16 @@ namespace ContainerVervoer.Classes
             }
         }
 
-        public void AddingContainerStackRow(Container Container)
+        public bool AddingContainerStackRow(Container Container)
         {
             bool containerAdded = false;
+            containerstack = containerstack.OrderBy(S => S.CurrentStackWeight).ToList();
 
             foreach (ContainerStack Stack in containerstack)
             {
-                if (!containerAdded)  containerAdded = Stack.TryAddingContainerToStack(Container);
+                if (!containerAdded) containerAdded = Stack.TryAddingContainerToStack(Container);
             }
+            return containerAdded;
         }
         
         private int LeftsideWeightCalculator()
