@@ -19,10 +19,10 @@ namespace ContainerVervoer.Classes
         public Container(bool iscooled, bool isvalueble,int currentweight) 
         {
             CurrentContainerWeight = currentweight;
-            //if (!AcceptedWeight())
-            //{
-            //    throw new ArgumentException("Error invalid weight");
-            //}
+            if (!AcceptedWeight())
+            {
+                throw new ArgumentException("Error invalid weight");
+            }
 
             IsCooled = iscooled;
             IsValueble = isvalueble;        

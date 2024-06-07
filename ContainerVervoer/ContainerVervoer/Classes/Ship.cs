@@ -33,14 +33,17 @@ namespace ContainerVervoer.Classes
             
             try
             {
-                //if (CanShipWeightBeHalfFilled() && OverMaxWeightOnShip())
-                //{
+                if (CanShipWeightBeHalfFilled() && OverMaxWeightOnShip())
+                {
                     onDocking = SortContainer(onDocking);
                     TryToPlaceCooledContainer();
                     TryToPlaceNormaleContainer();
                     TryToPlaceValuebleContainer();
 
-                //}
+                } else
+                {
+                    throw new ArgumentException("Error Ship weight invalid");
+                }
             } 
             catch (Exception)
             {
