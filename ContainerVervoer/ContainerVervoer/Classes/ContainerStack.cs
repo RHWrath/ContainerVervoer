@@ -30,12 +30,12 @@ namespace ContainerVervoer.Classes
             {
                 if (AcceptebleStackWeight() && DoesNotExceedCarryWeight(containers))
                 {
-                    if (!NotOnValueble(container)) 
+                    if (!NotOnValueble(container))
                     {
                         containers.Add(container);
                         return true;
-                    }                   
-            }
+                    }
+                }
             }
             else
             {

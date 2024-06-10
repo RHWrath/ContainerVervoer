@@ -58,6 +58,32 @@ public class ShipUnitTest
     }
 
     [TestMethod]
+    public void MargintestWithShip()
+    {
+        //Arrange
+        Ship testShip = new Ship(2, 2);
+        testShip.AddContainerToDock(HCC); //30
+        testShip.AddContainerToDock(HCC); //30
+        testShip.AddContainerToDock(HCC); //30
+        testShip.AddContainerToDock(HVCC); //30
+        testShip.AddContainerToDock(HCC); //30
+        testShip.AddContainerToDock(HCC); //30
+        testShip.AddContainerToDock(HDC); //30
+        testShip.AddContainerToDock(HDC); //30
+        testShip.AddContainerToDock(HDC); //30
+        testShip.AddContainerToDock(HDC); //30
+        testShip.AddContainerToDock(HDC); //30
+
+
+        //Act
+        testShip.DivideContainersOverShip();
+        bool succes = testShip.CalculateMargins(testShip.CalculateWeightRightside(),testShip.CalculateWeightLeftside());
+
+        //Assert
+        Assert.AreEqual(true, succes);
+    }
+
+    [TestMethod]
     public void FailedMarginTestWithMinus()
     {
         //Arrange
@@ -163,9 +189,32 @@ public class ShipUnitTest
         //Act
         testShip.DivideContainersOverShip();
         //Assert
+
+        //first stack
         Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].IsCooled);
         Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].IsValueble);
         Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[0].CurrentContainerWeight);
+
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[1].IsCooled);
+        Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[1].IsValueble);
+        Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[1].CurrentContainerWeight);
+
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[2].IsCooled);
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[2].IsValueble);
+        Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[0].Containers[2].CurrentContainerWeight);
+
+        //second stack
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[0].IsCooled);
+        Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[0].IsValueble);
+        Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[0].CurrentContainerWeight);
+
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[1].IsCooled);
+        Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[1].IsValueble);
+        Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[1].CurrentContainerWeight);
+
+        Assert.AreEqual(true, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[2].IsCooled);
+        Assert.AreEqual(false, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[2].IsValueble);
+        Assert.AreEqual(30, testShip.ContainerStackRows[0].ContainerStacks[1].Containers[2].CurrentContainerWeight);
 
     }
 
